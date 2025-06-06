@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DLC Chatbot</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="chatbot-container">
+    <div class="chat-header">🤖 DLC CHATBOT<br><span class="subtext"> One Tap at a Time ✨</span></div>
+    
+    <div class="chat-box" id="chat-box">
+      <div class="bot-message"> I am Digital Literacy Assistant. I'm here to help you  messaging apps like WhatsApp and Google Maps. What would you like to learn?
+      </div>
+      <!--<div class="ask-indicator">💬 Ask me anything about WhatsApp, Paytm or Maps!</div>-->
+    </div>
+
+    <div class="button-options">
+      <button onclick="handleClick('send photo')">📸 How to send a photo</button>
+      <button onclick="handleClick('video call')">📞 Start a video call</button>
+      <button onclick="handleClick('create group')">👥 Make a WhatsApp group</button>
+      <button onclick="handleClick('send voice')">🎤 Record & send voice</button>
+      <button onclick="handleClick('share location')">📍 Share my location using Maps</button>
+    </div>
+     <!-- 👇 Typing bar -->
+  <div class="chat-input-area">
+    <input type="text" id="user-input" placeholder="💬 Ask me anything..." />
+    <button onclick="handleUserInput()">Send</button>
+  </div>
+</div>
+ 
+  
+  
+
+
+  <script src="script.js"></script>
+</body>
+</html>
