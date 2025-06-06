@@ -6,8 +6,31 @@ function handleClick(topic) {
     appendMessage("bot", response);
   }, 500);
 }
-/* typing bar*/
 
+function handleUserInput() {
+  const input = document.getElementById("user-input");
+  const userText = input.value.trim();
+  if (userText === "") return;
+
+  appendMessage("user", userText);
+  input.value = "";
+
+  const keyword = detectTopicKeyword(userText.toLowerCase());
+  const response = getTutorial(keyword);
+
+  setTimeout(() => {
+    appendMessage("bot", response);
+  }, 500);
+}
+
+function detectTopicKeyword(text) {
+  if (text.includes("photo")) return "send photo";
+  if (text.includes("video")) return "video call";
+  if (text.includes("group")) return "create group";
+  if (text.includes("voice") || text.includes("mic")) return "send voice";
+  if (text.includes("location") || text.includes("map")) return "share location";
+  return text;
+}
 
 function formatTopicText(topic) {
   const map = {
@@ -28,7 +51,7 @@ function getTutorial(topic) {
     "send voice": "1. Open a chat in WhatsApp\n2. Hold down the 🎤 Mic icon → Speak\n3. Release to send",
     "share location": "1. Open a chat in WhatsApp\n2. Tap 📎 → Location\n3. Choose 'Send your current location'"
   };
-  return tutorials[topic] || "Sorry, I don’t have a guide for that yet!";
+  return tutorials[topic] || "❓ Sorry, I don’t have a guide for that yet!";
 }
 
 function appendMessage(sender, message) {
